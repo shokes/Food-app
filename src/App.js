@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import { React, useState } from "react";
+import "./App.css";
+import Food from "./Food";
+import data from "./data";
 
 function App() {
+  const [meal, setMeal] = useState(data);
+
+  const filterMeal = function (category) {
+    if (category === "all") {
+      setMeal(data);
+
+      return;
+    }
+    const newMeal = meal.filter((meal) => meal.category === category);
+    setMeal(newMeal);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <main className="container">
+      <header>
+        <h3>Meal plan</h3>
+        <button onClick={() => filterMeal("all")}>all</button>
+        <button onClick={() => filterMeal("breakfast")}>breakfast</button>
       </header>
-    </div>
+      <section>
+        <Food meal={meal} />
+      </section>
+    </main>
   );
 }
 
