@@ -1,6 +1,9 @@
-const Food = function ({ meal }) {
+import React from "react";
+import "./index.css";
+
+const Food = ({ meal }) => {
   return (
-    <main>
+    <main className="grid">
       {meal.map((m) => {
         const { id, title, meal, price, img, desc } = m;
 

@@ -1,30 +1,36 @@
-import { React, useState } from "react";
-import "./App.css";
+import React, { useState } from "react";
+import "./index.css";
+
 import Food from "./Food";
-import data from "./data";
+import meals from "./data";
+import Button from "./Button";
+const cat = ["all", ...new Set(meals.map((m) => m.category))];
 
 function App() {
-  const [meal, setMeal] = useState(data);
+  const [meal, setMeal] = useState(meals);
+  const [button, setButton] = useState(cat);
 
-  const filterMeal = function (category) {
+  const filterMeal = (category) => {
     if (category === "all") {
-      setMeal(data);
+      setMeal(meals);
 
       return;
     }
-    const newMeal = meal.filter((meal) => meal.category === category);
+    const newMeal = meals.filter((m) => m.category === category);
+    console.log(newMeal);
     setMeal(newMeal);
   };
 
   return (
     <main className="container">
       <header>
-        <h3>Meal plan</h3>
-        <button onClick={() => filterMeal("all")}>all</button>
-        <button onClick={() => filterMeal("breakfast")}>breakfast</button>
+        <h2>Meal plan</h2>
       </header>
       <section>
-        <Food meal={meal} />
+        <Button button={button} filterMeal={filterMeal} />
+        <div>
+          <Food meal={meal} />
+        </div>
       </section>
     </main>
   );
