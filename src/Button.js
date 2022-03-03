@@ -2,7 +2,7 @@ import React from "react";
 
 const Button = ({ button, filterMeal }) => {
   return (
-    <div>
+    <div className="center">
       {button.map((but, index) => {
         return (
           <button

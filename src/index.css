@@ -14,6 +14,10 @@ body {
   background-color: #e9ecef;
 }
 
+header {
+  text-align: center;
+}
+
 .container {
   max-width: 300rem;
   margin: 2rem auto;
@@ -26,17 +30,41 @@ h2 {
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  max-width: 100rem;
+  max-width: 60rem;
   margin: 0 auto;
-
   column-gap: 12rem;
   row-gap: 3rem;
+  justify-content: center;
+  align-content: center;
 }
 
-.btn {
+.center {
+  text-align: center;
+}
+
+.btn,
+.btn:link,
+.btn:visited {
   background: none;
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
   margin-right: 1rem;
   border: none;
   font-size: 1.1rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  text-transform: capitalize;
+}
+
+.btn:hover,
+.btn:active {
+  background-color: #000;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 9px;
+}
+
+@media (max-width: 73em) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
 }

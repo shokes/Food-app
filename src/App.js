@@ -24,7 +24,7 @@ function App() {
   return (
     <main className="container">
       <header>
-        <h2>Meal plan</h2>
+        <h2>Meal menu</h2>
       </header>
       <section>
         <Button button={button} filterMeal={filterMeal} />
